@@ -1,11 +1,11 @@
 close all
 
-load("SPL_data.mat");
+load("SPL_data_tercje_tercje.mat");
 
-dane = LEFTGR1;
+dane = RIGHTGR1;
 
-dla = "głośnika lewego";
-name_postix = "l";
+dla = "głośnika prawego";
+name_postix = "r";
 
 % semilogx(dane{:,"FreqHz"}, dane{:,"SPLdB"});
 % xlabel("Pasmo Częstotliwości [Hz]");

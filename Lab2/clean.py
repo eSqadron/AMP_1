@@ -1,5 +1,5 @@
 import os
-directory = 'bez_adaptacji_data'
+directory = 'z_adaptacja_data'
 
 for filename in os.listdir(directory):
     f_p = os.path.join(directory, filename)

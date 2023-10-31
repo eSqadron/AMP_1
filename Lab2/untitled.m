@@ -29,7 +29,7 @@ close all;
 x = 1:5;
 y = 1:5;
 
-probka = 32;
+probka = 115;
 przed_po = "po";
 
 dane = data_table_with_adaptations;
@@ -45,7 +45,7 @@ v = reshape(temp_row, [5, 5]);
 
 Z_interp = interp2(x, y, v, Xq, Yq)';
 
-f = figure
+f = figure;
 f.Position = [100 100 900 500];
 surf(Xq,Yq,Z_interp)
 title('Original Sampling');
@@ -67,7 +67,7 @@ close all;
 x = 1:5;
 y = 1:5;
 
-probka = 32;
+probka = 115;
 
 temp_row = data_table_no_adaptations{probka,2:26} - data_table_with_adaptations{probka,2:26};
 
@@ -77,7 +77,7 @@ v = reshape(temp_row, [5, 5]);
 
 Z_interp = interp2(x, y, v, Xq, Yq)';
 
-f = figure
+f = figure;
 f.Position = [100 100 900 500];
 surf(Xq,Yq,Z_interp)
 title('Original Sampling');

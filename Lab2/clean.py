@@ -1,5 +1,5 @@
 import os
-directory = 'z_adaptacja_data'
+directory = r'C:\Users\OEM\Documents\AMP_1\Lab3\SPL'
 
 for filename in os.listdir(directory):
     f_p = os.path.join(directory, filename)

@@ -1,7 +1,8 @@
 load("AMP_wyniki.mat");
 
 sti_means = zeros(length(STI_male{:,1}), 1);
-measurement_distances = [1, 2, 3, 4, 5, 6, 7, 8]; % TODO - podmienić odległości na faktyczne !
+
+measurement_distances = 3-1.58:1:(3-1.58+7)
 
 for i=1:length(STI_male{:,1})
     sti_means(i) = mean(STI_male{i,2:end});
@@ -78,18 +79,17 @@ plot([0, 100], a*[0, 100]+ b);
 % a * 4 +b = y
 scatter(4, a * 4 +b);
 
-xlim([1, 20]);
+xlim([0, 20]);
 
 xlabel("Odległość [m]");
 ylabel("L_{{\it p},A} [dB]");
 
 title("Zależność L_{{\it p},A,S} od odległości");
 
-legend("Pomiary", "Regresja liniowa", "L_{{\it p},A,S, 4m} = " + num2str(a * 4 +b, 3) + "dB")
+legend("kolejne punkty L_{{\it p},A,S}", "regresja liniowa", "L_{{\it p},A,S, 4m} = " + num2str(a * 4 +b, 3) + "dB")
 
-exportgraphics(f, '2.png', 'Resolution',300);
 
-%%
+
 N = length(Leq_db{:,1});
 logs_of_distances = log10(measurement_distances);
 
@@ -98,4 +98,11 @@ denominator = (N * sum(logs_of_distances.^2)) - sum(logs_of_distances).^2;
 numenator = N * sum(Lpasn' .* logs_of_distances) - sum(Lpasn') * sum(logs_of_distances);
 
 D2S = -log10(2) * (numenator./denominator)
+
+((a*10+b)-44)/(58-44)
+
+annotation('textarrow',[0.4, 0.5], [0.4, ((a*10+b)-44)/(58-44)],'String',"D2S = " + num2str(D2S, 3));
+
+exportgraphics(f, '2.png', 'Resolution',300);
+
 
